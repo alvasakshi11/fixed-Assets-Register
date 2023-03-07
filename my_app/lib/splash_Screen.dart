@@ -11,11 +11,7 @@ import 'package:my_app/login .dart';
 
 class SplashScreen extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => _SplashScreenState();
-  // @override
-  //syntax not correct
-  // _SplashScreenState createState() => _SplashScreenState();
-
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
 // const TextStyle textStyle = TextStyle(
@@ -42,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   //syntax error
   //void initstate()
-  //s is small
+  //s was small
   void initState() {
     super.initState();
 
@@ -55,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  //nimation<double> animation;
+  //animation<double> animation;
 
   // @override
   // void initState() {
