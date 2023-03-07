@@ -6,7 +6,7 @@ import 'package:my_app/login .dart';
 // class MyApp extends StatelessWidget {
 //   // This widget is the root of your application.
 
-    
+
 
 
 class SplashScreen extends StatefulWidget {
