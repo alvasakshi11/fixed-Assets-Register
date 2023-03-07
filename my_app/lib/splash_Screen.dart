@@ -36,7 +36,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   
   @override
-  void initstate() {
+  //syntax error
+  //void initstate()
+  //s was small
+  void initState() {
     super.initState();
 
     Timer(Duration(seconds: 2), () {
@@ -48,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  //nimation<double> animation;
+  //animation<double> animation;
 
   // @override
   // void initState() {
@@ -85,7 +88,7 @@ class _SplashScreenState extends State<SplashScreen> {
   //   ),
   // );
 
-  static get textStyle => null;
+  // static get textStyle => null;
 
   // final description = Text(
   //   'Get a update record on fixed assets of the Company.',
@@ -123,7 +126,7 @@ class _SplashScreenState extends State<SplashScreen> {
         padding: EdgeInsets.symmetric(horizontal: 8.0),
         child: Text(
           'OR',
-          style: textStyle,
+          
         ),
       ),
       Container(
