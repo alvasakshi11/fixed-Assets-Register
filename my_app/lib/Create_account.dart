@@ -18,10 +18,10 @@ class _MyCreateAccState extends State<MyCreateAcc> {
               image: AssetImage('assets/images/register.png'), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Color.fromARGB(0, 246, 241, 241),
           elevation: 0,
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor: Color.fromARGB(0, 238, 232, 232),
         body: Stack(
           children: [
             Container(
@@ -44,7 +44,7 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: Colors.black)),
+                            color: Colors.white)),
                              enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
