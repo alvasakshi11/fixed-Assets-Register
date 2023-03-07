@@ -25,7 +25,7 @@ class _MyCreateAccState extends State<MyCreateAcc> {
         body: Stack(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 35, top: 30),
+              padding: EdgeInsets.only(left: 22, top: 10),
               child: Text(
                 'Create\nAccount',
                 style: TextStyle(color: Colors.white, fontSize: 33),
@@ -44,11 +44,11 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: Colors.white)),
+                            color: Colors.black)),
                              enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: Colors.white)),
+                            color: Colors.black)),
                           hintText: 'Name',
                           hintStyle: TextStyle(
                             color: Colors.white),
@@ -67,7 +67,7 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                              enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: Colors.white)),
+                            color: Colors.black)),
                           hintText: 'Email',
                           hintStyle: TextStyle(
                             color: Colors.white),
@@ -87,7 +87,7 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                              enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
-                            color: Colors.white)),
+                            color: Colors.black)),
                           hintText: 'New password',
                           hintStyle: TextStyle(
                             color: Colors.white),
@@ -137,7 +137,7 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
                                 fontSize: 18,
-                                color: Colors.white,
+                                color: Colors.black,
                               ),
                             )),
                             
