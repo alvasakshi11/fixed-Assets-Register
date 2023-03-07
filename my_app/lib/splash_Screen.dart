@@ -188,9 +188,9 @@ class _SplashScreenState extends State<SplashScreen> {
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     final logo = Image.asset(
-      'assets/logo1.png',
-      width: 300.0,
-      height: 240.0,
+      'assets/logo2.png',
+      width: 1260.0,
+      height: 470.0,
     );
 
     //@override
@@ -250,7 +250,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(height: 100.0),
+                  SizedBox(height: 20.0),
                   logo,
                   SizedBox(height: 30.0)
                   // SizedBox(height: 60.0),
