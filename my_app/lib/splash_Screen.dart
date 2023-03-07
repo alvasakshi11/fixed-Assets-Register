@@ -5,11 +5,9 @@ import 'package:my_app/login .dart';
 
 // class MyApp extends StatelessWidget {
 //   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp();
-//   }
-// }
+
+    
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -21,14 +19,28 @@ class SplashScreen extends StatefulWidget {
 //   fontFamily: 'Calligraffitti',
 // );
 
-class _SplashScreenState extends State<SplashScreen>
-    with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen> {
+  // final greenOpacity = Container(
+  //   color: Color(0xAA6FFFB0CF),
+  // );
+  
+  final background = Container(
+    
+    decoration: BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage('assets/background.jpeg'),
+        fit: BoxFit.cover,
+      ),
+    ),
+  );
+
+  
   @override
   void initstate() {
     super.initState();
 
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacement(
+      Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => MyLogin(),
         ),
@@ -60,18 +72,9 @@ class _SplashScreenState extends State<SplashScreen>
   //   controller.dispose();
   // }
 
-  final background = Container(
-    decoration: BoxDecoration(
-      image: DecorationImage(
-        image: AssetImage('assets/background.jpeg'),
-        fit: BoxFit.cover,
-      ),
-    ),
-  );
 
-  final greenOpacity = Container(
-    color: Color(0xAA6FFFB0CF),
-  );
+
+ 
 
   // final logo = ScaleTransition(
   //   scale: animation,
@@ -90,26 +93,26 @@ class _SplashScreenState extends State<SplashScreen>
   //   style: textStyle.copyWith(fontSize: 24.0),
   // );
 
-  Widget button(String label, Function onTap) {
-    return Material(
-      color: Color.fromARGB(184, 155, 172, 151),
-      borderRadius: BorderRadius.circular(30.0),
-      child: InkWell(
-        //onTap: onTap,
-        splashColor: Colors.white24,
-        highlightColor: Colors.white10,
-        child: Container(
-          padding: EdgeInsets.symmetric(vertical: 13.0),
-          child: Center(
-            child: Text(
-              label,
-              //  style: textStyle.copyWith(fontSize: 8.0)
-            ),
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget button(String label, Function onTap) {
+  //   return Material(
+  //     color: Color.fromARGB(184, 155, 172, 151),
+  //     borderRadius: BorderRadius.circular(30.0),
+  //     child: InkWell(
+  //       //onTap: onTap,
+  //       splashColor: Colors.white24,
+  //       highlightColor: Colors.white10,
+  //       child: Container(
+  //         padding: EdgeInsets.symmetric(vertical: 13.0),
+  //         child: Center(
+  //           child: Text(
+  //             label,
+  //             //  style: textStyle.copyWith(fontSize: 8.0)
+  //           ),
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   final separator = Row(
     mainAxisAlignment: MainAxisAlignment.center,
@@ -144,41 +147,44 @@ class _SplashScreenState extends State<SplashScreen>
   //       ),
   //     ),
   //   ],);
-  final signWith = Row(
-    //opacity: animation,
+  // final signWith = Row(
+  //   //opacity: animation,
 
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      Text(
-        'Sign in with',
-        style: textStyle,
-      ),
-      GestureDetector(
-        onTap: () {
-          print('google');
-        },
-        child: Text(
-          ' Google',
+  //   mainAxisAlignment: MainAxisAlignment.center,
+  //   children: <Widget>[
+  //     Text(
+  //       'Sign in with',
+  //       style: textStyle,
+  //     ),
+  //     GestureDetector(
+  //       onTap: () {
+  //         print('google');
+  //       },
+  //       child: Text(
+  //         ' Google',
 
-          ///decoration: TextDecoration.underline),
-        ),
-      ),
-      GestureDetector(
-        onTap: () {
-          print('Facebook');
-        },
-        child: Text(
-          ' OR Facebook',
-          // style: textStyle.copyWith(
-          //     color: Color(0xBB009388),
-          //     fontWeight: FontWeight.bold,
-          //     decoration: TextDecoration.underline),
-        ),
-      ),
-    ],
-  );
+  //         ///decoration: TextDecoration.underline),
+  //       ),
+  //     ),
+  //     GestureDetector(
+  //       onTap: () {
+  //         print('Facebook');
+  //       },
+  //       child: Text(
+  //         ' OR Facebook',
+  //         // style: textStyle.copyWith(
+  //         //     color: Color(0xBB009388),
+  //         //     fontWeight: FontWeight.bold,
+  //         //     decoration: TextDecoration.underline),
+  //       ),
+  //     ),
+  //   ],
+  // );
   @override
   Widget build(BuildContext context) {
+    final greenOpacity = Container(
+    color: Color(0xAA6FFFB0CF),
+  );
     SystemChrome.setPreferredOrientations(
         [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
     final logo = Image.asset(
