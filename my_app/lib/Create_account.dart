@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:my_app/dashboard.dart';
 import 'package:my_app/login .dart';
 class MyCreateAcc extends StatefulWidget {
-  const MyCreateAcc({super.key});
+  const MyCreateAcc();
 
   @override
   State<MyCreateAcc> createState() => _MyCreateAccState();
@@ -18,26 +19,24 @@ class _MyCreateAccState extends State<MyCreateAcc> {
               image: AssetImage('assets/images/register.png'), fit: BoxFit.cover)),
       child: Scaffold(
         appBar: AppBar(
+          title:Text(
+                'New Assets Mode',
+                style: TextStyle(color: Colors.white, fontSize: 22),
+              ),
           backgroundColor: Color.fromARGB(0, 246, 241, 241),
           elevation: 0,
+          
         ),
         backgroundColor: Color.fromARGB(0, 238, 232, 232),
         body: Stack(
           children: [
-            Container(
-              padding: EdgeInsets.only(left: 22, top: 10),
-              child: Text(
-                'Create\nAccount',
-                style: TextStyle(color: Colors.white, fontSize: 33),
-              ),
-            ),
             SingleChildScrollView(
               child: Container(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.28,
                     right: 35,
                     left: 35),
-                child: Column(
+                child: Row(
                   children: [
                     TextField(
                       decoration: InputDecoration(
@@ -128,12 +127,12 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MyLogin(),
+                                  builder: (context) => FixedAssetsDashboardScreen(),
                                 ),
                               ); 
                             },
                             child: Text(
-                              'Sign up',
+                              'Submit',
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
                                 fontSize: 18,

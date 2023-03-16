@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+//import 'package:my_app/New.dart';
+import 'package:my_app/Tracker.dart';
+import 'package:my_app/dashboard.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/login .dart';
 import 'package:my_app/splash_Screen.dart';
+import 'package:qr_flutter/qr_flutter.dart';
+
+import 'New.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
