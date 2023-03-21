@@ -36,7 +36,7 @@ class _MyCreateAccState extends State<MyCreateAcc> {
                     top: MediaQuery.of(context).size.height * 0.28,
                     right: 35,
                     left: 35),
-                child: Row(
+                child: Column(
                   children: [
                     TextField(
                       decoration: InputDecoration(

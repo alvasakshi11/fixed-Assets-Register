@@ -4,7 +4,6 @@
 // import 'package:my_app/dashboard.dart';
 // import 'package:my_app/login .dart';
 
-
 // class MyNewAssests extends StatefulWidget {
 //   const MyNewAssests();
 
@@ -127,13 +126,13 @@
 // //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
 // //                       children: [
 // //                         TextButton(
-// //                             onPressed: () { 
+// //                             onPressed: () {
 // //                               Navigator.push(
 // //                                 context,
 // //                                 MaterialPageRoute(
 // //                                   builder: (context) => FixedAssetsDashboardScreen(),
 // //                                 ),
-// //                               ); 
+// //                               );
 // //                             },
 // //                             child: Text(
 // //                               'Submit',
@@ -143,7 +142,7 @@
 // //                                 color: Colors.black,
 // //                               ),
 // //                             )),
-                            
+
 // //                       ],
 // //                     )
 // //                   ],
@@ -154,19 +153,17 @@
 // //         ),
 //       ),
 //     );
-  
+
 //    }
 // }
-
-
-
 
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class FixedAssetsRegisterForm extends StatefulWidget {
   @override
-  _FixedAssetsRegisterFormState createState() => _FixedAssetsRegisterFormState();
+  _FixedAssetsRegisterFormState createState() =>
+      _FixedAssetsRegisterFormState();
 }
 
 class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
@@ -182,17 +179,18 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
   final _modelNumberController = TextEditingController();
 
   // Define variable to hold selected dropdown values
-  late String _selectedCompanyName;
-  late String _selectedCategory;
-  late String _selectedYear;
+  late String _selectedCompanyName = "";
+  late String _selectedCategory = "";
+  late String _selectedYear = "";
 
   // Define variable to hold generated QR code
-  late String _qrCodeData;
+  late String _qrCodeData = "";
 
   // Function to generate QR code
   void _generateQRCode() {
     // Combine form data into a string to use as QR code data
-    String data = 'Fixed Assets Number: ${DateTime.now().millisecondsSinceEpoch}\n'
+    String data =
+        'Fixed Assets Number: ${DateTime.now().millisecondsSinceEpoch}\n'
         'Company Name: $_selectedCompanyName\n'
         'Category: $_selectedCategory\n'
         'Year: $_selectedYear\n'
@@ -202,7 +200,7 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
         'Model Number: ${_modelNumberController.text}';
 
     setState(() {
-      _qrCodeData = data;
+      // _qrCodeData = '${_selectedCompanyName},${_selectedCategory},${_selectedYear}';
     });
   }
 
@@ -232,7 +230,7 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                 'Fixed Assets Number: ${DateTime.now().millisecondsSinceEpoch}',
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               DropdownButtonFormField(
                 items: _companyNames.map((companyName) {
                   return DropdownMenuItem(
@@ -241,14 +239,14 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                   );
                 }).toList(),
                 hint: Text('Select Company Name'),
-                value: _selectedCompanyName,
+                // value: _selectedCompanyName,
                 onChanged: (value) {
                   setState(() {
                     _selectedCompanyName = value!;
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               DropdownButtonFormField(
                 items: _categories.map((category) {
                   return DropdownMenuItem(
@@ -257,14 +255,14 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                   );
                 }).toList(),
                 hint: Text('Select Category'),
-                value: _selectedCategory,
+                // value: _selectedCategory,
                 onChanged: (value) {
                   setState(() {
                     _selectedCategory = value!;
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               DropdownButtonFormField(
                 items: _years.map((year) {
                   return DropdownMenuItem(
@@ -273,14 +271,103 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                   );
                 }).toList(),
                 hint: Text('Select year'),
-                value: _selectedCategory,
+                // value: _selectedCategory,
                 onChanged: (value) {
                   setState(() {
-                    _selectedCategory = value!;
+                    _selectedYear = value!;
                   });
                 },
               ),
-
-
-          ]))));}
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _productNameController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter Product Name',
+                  labelText: 'Product Name',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _typeController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter Type',
+                  labelText: 'Type',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter valid phone number';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _purchaseDateController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter Purchase Date',
+                  labelText: 'Purchase Date',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter valid date';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              TextFormField(
+                controller: _modelNumberController,
+                decoration: const InputDecoration(
+                  hintText: 'Enter Model Number',
+                  labelText: 'Model Number',
+                ),
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter valid date';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16.0),
+              Center(
+                child: Container(
+                    padding: const EdgeInsets.only(top: 20),
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      child: const Text('Generate QRcode'),
+                      onPressed: () {
+                        setState(() {
+                          _qrCodeData = '${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
+                              '${_productNameController.text},${_typeController.text}'
+                              ',${_purchaseDateController.text},${_modelNumberController.text}';
+                        });
+                      },
+                    )),
+              ),
+              Center(
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  margin: const EdgeInsets.only(top: 30),
+                  child: QrImage(
+                    data:
+                    _qrCodeData,
+                    version: QrVersions.auto,
+                    size: 200,
+                    gapless: false,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
+}

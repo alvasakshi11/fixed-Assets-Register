@@ -2,10 +2,9 @@
 // import 'package:my_app/dashboard.dart';
 // import 'package:my_app/login .dart';
 
-
-// // class Tracker extends StatelessWidget {  
-// //   @override  
-// //   Widget build(BuildContext context) {  
+// // class Tracker extends StatelessWidget {
+// //   @override
+// //   Widget build(BuildContext context) {
 // //     return Container (
 // //       decoration:BoxDecoration(
 // //         image: DecorationImage(image: AssetImage('assets/background.jpeg'), fit: BoxFit.cover)
@@ -137,13 +136,13 @@
 //                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
 //                       children: [
 //                         TextButton(
-//                             onPressed: () { 
+//                             onPressed: () {
 //                               Navigator.push(
 //                                 context,
 //                                 MaterialPageRoute(
 //                                   builder: (context) => dashboard(),
 //                                 ),
-//                               ); 
+//                               );
 //                             },
 //                             child: Text(
 //                               'Submit',
@@ -153,7 +152,7 @@
 //                                 color: Colors.black,
 //                               ),
 //                             )),
-                            
+
 //                       ],
 //                     )
 //                   ],
@@ -164,7 +163,7 @@
 //         ),
 //       ),
 //     );
-  
+
 //   }
 // }
 // import 'package:flutter/material.dart';
@@ -222,13 +221,13 @@
 //             Row(
 //               children: [
 //                 TextButton(
-//                             onPressed: () { 
+//                             onPressed: () {
 //                               Navigator.push(
 //                                 context,
 //                                 MaterialPageRoute(
 //                                   builder: (context) => AddAssetScreen(),
 //                                 ),
-//                               ); 
+//                               );
 //                             },
 //                             child: Text(
 //                               'Back',
@@ -250,13 +249,14 @@
 //         icon: Icon(Icons.camera_alt),
 //         label: Text('Scan'),
 //       ),
-      
+
 //       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
 //     );
 //   }
 // }
 
 import 'package:flutter/material.dart';
+import 'package:my_app/ScanQrcode.dart';
 
 import 'dashboard.dart';
 
@@ -292,6 +292,11 @@ class FixedAssetsTrackerScreen extends StatelessWidget {
                     height: 250,
                     child: ElevatedButton.icon(
                       onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Qrcodescanner()),
+                        );
                         // Open QR scanner
                       },
                       icon: Icon(Icons.camera_alt),
@@ -312,9 +317,11 @@ class FixedAssetsTrackerScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // Navigate back to previous screen
-          Navigator.pop(context,
-           MaterialPageRoute(builder: (context) => FixedAssetsDashboardScreen()),
-           );
+          Navigator.pop(
+            context,
+            MaterialPageRoute(
+                builder: (context) => FixedAssetsDashboardScreen()),
+          );
         },
         child: Icon(Icons.arrow_back),
       ),
