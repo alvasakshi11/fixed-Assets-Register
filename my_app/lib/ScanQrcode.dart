@@ -55,6 +55,12 @@ class QrcodescannerState extends State<Qrcodescanner> {
   void onQrViewCreated(QRViewController controller) {
     setState(() => qrViewController = controller);
     controller.scannedDataStream
-        .listen((barcode) => setState(() => result = barcode));
+        .listen((barcode) => setState(() {
+          result = barcode;
+          if(result!=null){
+            print(result!.code);
+
+          }
+        }));
   }
 }

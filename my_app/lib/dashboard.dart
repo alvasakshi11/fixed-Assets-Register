@@ -54,7 +54,8 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
                       // Navigate to Tracker Mode screen
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => FixedAssetsTrackerScreen()),
+                        MaterialPageRoute(builder: (context) => FixedAssetsTrackerScreen(company:'',category:'',
+                            year:'',productname:'', type: '', purchasedate: '', modelnumber: '')),
                       );
                     },
                     child: Card(
