@@ -13,7 +13,8 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -23,7 +24,8 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
                       // Navigate to New Mode screen
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => FixedAssetsRegisterForm()),
+                        MaterialPageRoute(
+                            builder: (context) => FixedAssetsRegisterForm()),
                       );
                     },
                     child: Card(
@@ -54,8 +56,16 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
                       // Navigate to Tracker Mode screen
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => FixedAssetsTrackerScreen(company:'',category:'',
-                            year:'',productname:'', type: '', purchasedate: '', modelnumber: '')),
+                        MaterialPageRoute(
+                            builder: (context) => FixedAssetsTrackerScreen(
+                                fixedassetno: '',
+                                company: '',
+                                category: '',
+                                year: '',
+                                productname: '',
+                                type: '',
+                                purchasedate: '',
+                                modelnumber: '')),
                       );
                     },
                     child: Card(

@@ -260,59 +260,220 @@ import 'package:my_app/ScanQrcode.dart';
 
 import 'dashboard.dart';
 
-class FixedAssetsTrackerScreen extends StatelessWidget {
+class FixedAssetsTrackerScreen extends StatefulWidget {
+
+  final String fixedassetno;
+  final String company;
+  final String category;
+  final String year;
+  final String productname;
+  final String type;
+  final String purchasedate;
+  final String modelnumber;
+  FixedAssetsTrackerScreen({required this.fixedassetno,required this.company, required this.category,
+    required this.year, required this.productname, required this.type,
+    required this.purchasedate, required this.modelnumber});
+
+  @override
+  FixedAssetsTrackerScreenState createState() =>
+      FixedAssetsTrackerScreenState();
+}
+
+class FixedAssetsTrackerScreenState extends State<FixedAssetsTrackerScreen> {
+  // Define variables for product details form
+  // Define variables for product details form
+  final _fixedAssetNumberController = TextEditingController();
+  final _companyNameController = TextEditingController();
+  final _categoryController = TextEditingController();
+  final _selectYearController = TextEditingController();
+  final _productNameController = TextEditingController();
+  final _typeController = TextEditingController();
+  final _purchaseDateController = TextEditingController();
+  final _modelNumberController = TextEditingController();
+
+
+  @override
+  void initState() {
+    super.initState();
+    _fixedAssetNumberController.text = widget.fixedassetno;
+    _companyNameController.text = widget.company;
+    _categoryController.text = widget.category;
+    _selectYearController.text = widget.year;
+    _productNameController.text = widget.productname;
+    _typeController.text = widget.type;
+    _purchaseDateController.text = widget.purchasedate;
+    _modelNumberController.text = widget.modelnumber;
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Fixed Assets Tracker'),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  borderSide: BorderSide(),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Search',
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(),
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 250,
-                    height: 250,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Qrcodescanner()),
-                        );
-                        // Open QR scanner
-                      },
-                      icon: Icon(Icons.camera_alt),
-                      label: Text('Scan'),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 250,
+                      height: 250,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Qrcodescanner()),
+                          );
+                          // Open QR scanner
+                        },
+                        icon: Icon(Icons.camera_alt),
+                        label: Text('Scan'),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    'Scan a QR code to track a fixed asset',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ],
+                    SizedBox(height: 16),
+                    Text(
+                      'Scan a QR code to track a fixed asset',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _fixedAssetNumberController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Fixed Asset Number',
+                        labelText: 'Fixed Asset Number',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      controller: _companyNameController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Company Name',
+                        labelText: 'Company Name',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _categoryController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Category',
+                        labelText: 'Category',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _selectYearController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Year',
+                        labelText: 'Year',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _productNameController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Product Name',
+                        labelText: 'Product Name',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter some text';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _typeController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Type',
+                        labelText: 'Type',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter valid phone number';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _purchaseDateController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Purchase Date',
+                        labelText: 'Purchase Date',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter valid date';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16.0),
+                    TextFormField(
+                      controller: _modelNumberController,
+                      decoration: const InputDecoration(
+                        hintText: 'Enter Model Number',
+                        labelText: 'Model Number',
+                      ),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter valid date';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

@@ -179,6 +179,7 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
   final _modelNumberController = TextEditingController();
 
   // Define variable to hold selected dropdown values
+  //----------------------------------always intialize the variables before using-----------------------
   late String _selectedCompanyName = "";
   late String _selectedCategory = "";
   late String _selectedYear = "";
@@ -343,7 +344,7 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                       child: const Text('Generate QRcode'),
                       onPressed: () {
                         setState(() {
-                          _qrCodeData = '${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
+                          _qrCodeData = '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
                               '${_productNameController.text},${_typeController.text}'
                               ',${_purchaseDateController.text},${_modelNumberController.text}';
                         });

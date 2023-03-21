@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/Tracker.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -54,12 +55,26 @@ class QrcodescannerState extends State<Qrcodescanner> {
 
   void onQrViewCreated(QRViewController controller) {
     setState(() => qrViewController = controller);
-    controller.scannedDataStream
-        .listen((barcode) => setState(() {
+    controller.scannedDataStream.listen((barcode) => setState(() {
           result = barcode;
-          if(result!=null){
+          if (result != null) {
             print(result!.code);
-
+            var data = result!.code!.split(",");
+            print(data.toString());
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => FixedAssetsTrackerScreen(
+                    fixedassetno: data[0],
+                    company: data[1],
+                    category: data[2],
+                    year: data[3],
+                    productname: data[4],
+                    type: data[5],
+                    purchasedate: data[6],
+                    modelnumber: data[7]),
+              ),
+            );
           }
         }));
   }
