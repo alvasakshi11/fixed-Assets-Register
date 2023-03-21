@@ -168,8 +168,8 @@ class FixedAssetsRegisterForm extends StatefulWidget {
 
 class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
   // Define dropdown menu options for Company Name, Category, and Year
-  List<String> _companyNames = ['Company A', 'Company B', 'Company C'];
-  List<String> _categories = ['Category 1', 'Category 2', 'Category 3'];
+  List<String> _companyNames = ['Kakunje', 'Infosys', 'TCS'];
+  List<String> _categories = ['Office Use', 'Personal Use', 'Lobby Use'];
   List<String> _years = ['2021', '2022', '2023'];
 
   // Define variables for product details form
