@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:my_app/Create_account.dart';
 
+// import 'comm/genToFormField.dart';
+
 class MyLogin extends StatefulWidget {
   MyLogin();
 
@@ -10,6 +12,9 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+  final _conUserId = TextEditingController();
+  final _conPassword = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,23 +40,38 @@ class _MyLoginState extends State<MyLogin> {
                     left: 35),
                 child: Column(
                   children: [
-                    TextField(
+                    TextFormField(
                       decoration: InputDecoration(
                           fillColor: Colors.grey.shade100,
                           filled: true,
-                          hintText: 'Email',
+                          prefixIcon: Icon(Icons.person),
+                          hintText: 'User ID',
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),
+                    // getTextFormField(
+                    //   controller: _conUserId,
+                    //   icon: Icons.person,
+                    //   hintName: 'User ID ', 
+                    //   inputType: TextInputType.number,
+                    // ),
                     SizedBox(
-                      height: 30,
+                      height: 10,
                     ),
-                    TextField(
+                    // getTextFormField(
+                    //   controller: _conPassword,
+                    //   icon: Icons.lock,
+                    //   hintName: 'Password ',
+                    //   isObscureText: true, inputType: TextInputType.visiblePassword, 
+                      
+                    // ),
+                    TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
                           fillColor: Colors.grey.shade100,
                           filled: true,
                           hintText: 'password',
+                          prefixIcon: Icon(Icons.lock),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10))),
                     ),

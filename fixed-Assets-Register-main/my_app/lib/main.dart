@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 //import 'package:my_app/New.dart';
 import 'package:my_app/Tracker.dart';
-import 'package:my_app/dashboard.dart';
+import 'package:my_app/screens/dashboard.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/login .dart';
-import 'package:my_app/splash_Screen.dart';
+import 'package:my_app/screens/splash_Screen.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:my_app/printing.dart';
+// import 'Screens/LoginForm.dart';
+// import 'package:my_app/screens/New.dart';
 
-import 'New.dart';
+import 'package:path/path.dart';
+import 'dart:io' as io;
 
 void main() => runApp(MyApp());
 

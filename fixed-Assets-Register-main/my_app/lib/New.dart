@@ -158,7 +158,14 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:my_app/printing.dart';
+// import 'package:my_app/login.dart';
+
 import 'package:qr_flutter/qr_flutter.dart';
+
+import 'Tracker.dart';
+import 'login .dart';
+// import 'package:printing .dart';
 
 class FixedAssetsRegisterForm extends StatefulWidget {
   @override
@@ -344,7 +351,8 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                       child: const Text('Generate QRcode'),
                       onPressed: () {
                         setState(() {
-                          _qrCodeData = '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
+                          _qrCodeData =
+                              '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
                               '${_productNameController.text},${_typeController.text}'
                               ',${_purchaseDateController.text},${_modelNumberController.text}';
                         });
@@ -357,18 +365,66 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                   height: 200,
                   margin: const EdgeInsets.only(top: 30),
                   child: QrImage(
-                    data:
-                    _qrCodeData,
+                    data: _qrCodeData,
                     version: QrVersions.auto,
                     size: 200,
                     gapless: false,
                   ),
                 ),
-              )
+              ),
+              Container(
+                  padding: const EdgeInsets.only(top: 20),
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    child: const Text('Print'),
+                    onPressed: () {
+                      // setState(() {
+                      //   _qrCodeData = '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
+                      //       '${_productNameController.text},${_typeController.text}'
+                      //       ',${_purchaseDateController.text},${_modelNumberController.text}';
+                      // }
+                      // );
+                      Navigator.pop(
+                        context,
+                        MaterialPageRoute(builder: (context) => PrintScreen(data: 'barcode',)),
+                      );
+                    },
+                  )),
+              // ElevatedButton(
+              //   // onPressed: () {
+              //   //   Navigator.pop(
+              //   //     context,
+              //   //     MaterialPageRoute(builder: (context) => printing()),
+              //   //   );
+              //   // },
+              //   child: Text("Print QR code"),
+              // )
             ],
           ),
         ),
       ),
     );
   }
+//    Future<void> _printQRCode() async {
+//     final doc = pw.Document();
+//     final qrImage = QrImage(
+//       data: _qrCodeData,
+//       version: QrVersions.auto,
+//       size: 200.0,
+//     );
+//     var ui;
+//     final imageBytes =
+//         await qrImage.toByteData(format: ui.ImageByteFormat.png);
+//     final pngImage = pw.MemoryImage(imageBytes.buffer.asUint8List());
+
+//     doc.addPage(pw.Page(
+//         build: (pw.Context context) {
+//           return pw.Center(
+//             child: pw.Image(pngImage),
+//           );
+//         }));
+//     await Printing.layoutPdf(
+//         onLayout: (format) => doc.save(),
+// );
+// }
 }
