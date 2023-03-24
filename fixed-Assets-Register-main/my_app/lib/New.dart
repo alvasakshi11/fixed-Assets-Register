@@ -161,7 +161,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:flutter/material.dart';
-import 'package:my_app/printing.dart';
+import 'package:my_app/Print_QRcode.dart';
 import 'package:printing/printing.dart';
 // import 'package:my_app/login.dart';
 import 'package:image/image.dart' as img;

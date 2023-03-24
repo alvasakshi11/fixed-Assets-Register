@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:my_app/login .dart';
 import 'package:my_app/screens/splash_Screen.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:my_app/printing.dart';
+import 'package:my_app/Print_QRcode.dart';
 // import 'Screens/LoginForm.dart';
 // import 'package:my_app/screens/New.dart';
 
