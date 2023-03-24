@@ -3,7 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 // import 'package:my_app/dashboard.dart';
 import 'package:my_app/login .dart';
-import 'package:my_app/screens/dashboard.dart';
+import 'package:my_app/dashboard.dart';
 
 // import 'comm/genToFormField.dart';
 

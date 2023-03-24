@@ -258,7 +258,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/ScanQrcode.dart';
 import 'package:my_app/New.dart';
-import 'screens/dashboard.dart';
+import 'dashboard.dart';
 
 class FixedAssetsTrackerScreen extends StatefulWidget {
 
