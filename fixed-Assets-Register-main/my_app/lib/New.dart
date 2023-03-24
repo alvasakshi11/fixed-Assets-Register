@@ -156,11 +156,15 @@
 
 //    }
 // }
-
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
 import 'package:flutter/material.dart';
 import 'package:my_app/printing.dart';
+import 'package:printing/printing.dart';
 // import 'package:my_app/login.dart';
-
+import 'package:image/image.dart' as img;
 import 'package:qr_flutter/qr_flutter.dart';
 
 import 'Tracker.dart';
@@ -210,6 +214,34 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
     setState(() {
       // _qrCodeData = '${_selectedCompanyName},${_selectedCategory},${_selectedYear}';
     });
+  }
+  Future<void> _saveAsPdf() async {
+    final pdf = pw.Document();
+    final dir = await getApplicationDocumentsDirectory();
+    final file = File('${dir.path}/qrcode.pdf');
+
+    final image = img.decodeImage(File('${dir.path}/qrcode.png').readAsBytesSync());
+
+    final imagePdf = pw.MemoryImage(image!.data.buffer.asUint8List());
+
+    pdf.addPage(pw.Page(
+      build: (pw.Context context) {
+        return pw.Center(child: pw.Image(imagePdf));
+      },
+    ));
+
+    await file.writeAsBytes(await pdf.save());
+  }
+
+  Future<void> _printQrCode() async {
+    final dir = await getApplicationDocumentsDirectory();
+    final file = File('${dir.path}/qrcode.png');
+
+    try {
+      await Printing.layoutPdf(onLayout: (_) => file.readAsBytes());
+    } catch (e) {
+      print('Printing error: $e');
+    }
   }
 
   @override
@@ -376,7 +408,7 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                   padding: const EdgeInsets.only(top: 20),
                   width: double.infinity,
                   child: ElevatedButton(
-                    child: const Text('Print'),
+                    child: const Text('Print QR code'),
                     onPressed: () {
                       // setState(() {
                       //   _qrCodeData = '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
@@ -384,10 +416,13 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                       //       ',${_purchaseDateController.text},${_modelNumberController.text}';
                       // }
                       // );
-                      Navigator.pop(
-                        context,
-                        MaterialPageRoute(builder: (context) => PrintScreen(data: 'barcode',)),
-                      );
+                      // Navigator.pushReplacement(context,
+                      //  MaterialPageRoute(builder: (context)=>printScreen()),
+                      //  );
+                      // Navigator.pop(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => PrintScreen(data: 'barcode',)),
+                      // );
                     },
                   )),
               // ElevatedButton(
