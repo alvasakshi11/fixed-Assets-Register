@@ -37,6 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   qr_flutter: ^4.0.0
   qr_code_scanner: ^1.0.1
+  path_provider: ^2.0.14
+  painter: ^2.0.0
+  http: ^0.12.0+4
+  google_fonts: ^1.1.0
 
 dev_dependencies:
   flutter_test:

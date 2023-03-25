@@ -156,9 +156,14 @@
 
 //    }
 // }
+import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'dart:ui' as ui;
 
 class FixedAssetsRegisterForm extends StatefulWidget {
   @override
@@ -203,6 +208,19 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
     setState(() {
       // _qrCodeData = '${_selectedCompanyName},${_selectedCategory},${_selectedYear}';
     });
+  }
+
+  final GlobalKey globalKey = GlobalKey();
+
+  Future<void> convertQrCodeToImage() async {
+    RenderRepaintBoundary boundary = globalKey.currentContext!.findRenderObject() as RenderRepaintBoundary;
+    ui.Image image = await boundary.toImage();
+    final directory = (await getExternalStorageDirectory())!.path;
+    ByteData? byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    Uint8List pngBytes = byteData!.buffer.asUint8List();
+    File imgFile = File("$directory/qrCode.png");
+    await imgFile.writeAsBytes(pngBytes);
+    print(imgFile);
   }
 
   @override
@@ -344,9 +362,11 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                       child: const Text('Generate QRcode'),
                       onPressed: () {
                         setState(() {
-                          _qrCodeData = '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
+                          _qrCodeData =
+                              '${DateTime.now().millisecondsSinceEpoch},$_selectedCompanyName,$_selectedCategory,$_selectedYear,'
                               '${_productNameController.text},${_typeController.text}'
                               ',${_purchaseDateController.text},${_modelNumberController.text}';
+                          convertQrCodeToImage();
                         });
                       },
                     )),
@@ -356,12 +376,14 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                   width: 200,
                   height: 200,
                   margin: const EdgeInsets.only(top: 30),
-                  child: QrImage(
-                    data:
-                    _qrCodeData,
-                    version: QrVersions.auto,
-                    size: 200,
-                    gapless: false,
+                  child: RepaintBoundary(
+                    key: globalKey,
+                    child: QrImage(
+                      data: _qrCodeData,
+                      version: QrVersions.auto,
+                      size: 200,
+                      gapless: false,
+                    ),
                   ),
                 ),
               )
