@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:my_app/Screens/LoginForm.dart';
-
-import '../login .dart';
+import 'package:my_app/login .dart';
 
 // class MyApp extends StatelessWidget {
 //   // This widget is the root of your application.

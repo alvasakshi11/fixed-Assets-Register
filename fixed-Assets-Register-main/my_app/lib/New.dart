@@ -157,6 +157,9 @@
 //    }
 // }
 import 'dart:io';
+import 'package:my_app/db_helper.dart';
+import 'package:my_app/form.dart';
+import 'package:my_app/modals.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -172,6 +175,8 @@ import 'login .dart';
 // import 'package:printing .dart';
 
 class FixedAssetsRegisterForm extends StatefulWidget {
+//   final DatabaseHelper databaseHelper;
+//  const FixedAssetsRegisterForm({super.key,required this.databaseHelper});
   @override
   _FixedAssetsRegisterFormState createState() =>
       _FixedAssetsRegisterFormState();
@@ -182,9 +187,9 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
   List<String> _companyNames = ['Kakunje', 'Infosys', 'TCS'];
   List<String> _categories = ['Office Use', 'Personal Use', 'Lobby Use'];
   List<String> _years = ['2021', '2022', '2023'];
-
+ 
   // Define variables for product details form
-  final _productNameController = TextEditingController();
+  final  _productNameController = TextEditingController();
   final _typeController = TextEditingController();
   final _purchaseDateController = TextEditingController();
   final _modelNumberController = TextEditingController();
@@ -375,6 +380,30 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                 },
               ),
               const SizedBox(height: 16.0),
+              Container(
+                  padding: const EdgeInsets.only(top: 20),
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    child: const Text('Submit'),
+                    onPressed: () async{
+                      // setState(() {
+                      //   _qrCodeData = '${DateTime.now().millisecondsSinceEpoch},${_selectedCompanyName},${_selectedCategory},${_selectedYear},'
+                      //       '${_productNameController.text},${_typeController.text}'
+                      //       ',${_purchaseDateController.text},${_modelNumberController.text}';
+                      // }
+                      // );
+
+  // User user=User(companyname: _companyNames.first, catagories: _categories.first, year: _years.first);
+  // await widget.databaseHelper.addUser(user);
+                      // Navigator.pushReplacement(context,
+                      //  MaterialPageRoute(builder: (context)=>MyForm(user: null,)),
+                      //  );
+                      // Navigator.pop(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => PrintScreen(data: 'barcode',)),
+                      // );
+                    },
+                  )),
               Center(
                 child: Container(
                     padding: const EdgeInsets.only(top: 20),
@@ -391,6 +420,7 @@ class _FixedAssetsRegisterFormState extends State<FixedAssetsRegisterForm> {
                       },
                     )),
               ),
+              
               Center(
                 child: Container(
                   width: 200,

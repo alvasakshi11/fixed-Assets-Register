@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/Create_account.dart';
 import 'package:my_app/New.dart';
 // import 'package:my_app/screens/New.dart';
 import 'package:my_app/Tracker.dart';
+import 'package:my_app/db_helper.dart';
+import 'package:my_app/form.dart';
 import 'package:my_app/login .dart';
 
 
 
 class FixedAssetsDashboardScreen extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +22,7 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context,
             MaterialPageRoute(
-                            builder: (context) => MyLogin()),
+                            builder: (context) => MyCreateAcc()),
                             );
           },
         ),

@@ -45,24 +45,6 @@ class PrintScreen extends StatelessWidget {
             //       },
             //     ),
             //   ];
-              Future<bool> generatePdf() async {
-  final pdf = await Printing.layoutPdf(
-    onLayout: (PdfPageFormat format) async {
-      // Generate PDF content
-      final doc = pw.Document();
-          doc.addPage(pw.Page(
-        build: (pw.Context context) {
-          return pw.Center(
-            child: pw.Image(QRImage!),
-          );
-        }));
-    await Printing.layoutPdf(
-        onLayout: (format) => doc.save(),); // doc.addPage
-      // return buildPrintableData(QrImage); // return Future<Uint8List>
-    }, // onLayout
-  ); // Printing.layoutPdf
-  return pdf;
-}
             },
           ));
           child: Icon(Icons.print);

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/New.dart';
-// import 'package:my_app/screens/New.dart';
 import 'package:my_app/Tracker.dart';
-import 'package:my_app/login .dart';
-
 
 class FixedAssetsDashboardScreen extends StatelessWidget {
   @override
@@ -11,15 +8,6 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Fixed Assets Register'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context,
-            MaterialPageRoute(
-                            builder: (context) => MyLogin()),
-                            );
-          },
-        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +93,6 @@ class FixedAssetsDashboardScreen extends StatelessWidget {
             ),
           ),
         ],
-        
       ),
     );
   }
